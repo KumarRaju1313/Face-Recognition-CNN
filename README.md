@@ -110,9 +110,3 @@ The goal is to identify a person from a face image, even if the image has been a
 
 ---
 
-## 📁 Files and Code Access
-
-Due to file size, only a few sample scripts are available on GitHub. The full models, trained weights, and data samples can be accessed via this Google Drive:
-
-🔗 **[Google Drive - Full Project Files](https://drive.google.com/drive/folders/1---iQulh4ts4ZXab6R6ykwC2oO6vgXT-?usp=sharing)**
-
