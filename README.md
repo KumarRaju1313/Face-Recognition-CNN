@@ -1,18 +1,18 @@
 # 🧠 Face Re-Identification Using Deep Learning
 
-This project aims to build a **Face Re-Identification System** capable of recognizing individuals based on facial images. It uses three state-of-the-art deep learning models: **MobileNetV2**, **VGG16**, and **ResNet50V2**, trained on a custom dataset of 7 individuals.
+This project implements a **Face Re-Identification System** to recognize individuals based on facial features using deep learning. Three state-of-the-art CNN models were trained and compared for accuracy, speed, and deployment readiness.
 
 ---
 
 ## 📌 Project Objective
 
-The goal is to identify a person from a face image, even if the image has been altered through augmentations like blurring, flipping, or converting to grayscale. This is useful in surveillance, access control, or verification systems.
+To classify faces of known individuals—even when the images are altered via augmentation—using MobileNetV2, VGG16, and ResNet50V2. This system can be extended to surveillance, biometric verification, or access control.
 
 ---
 
 ## 🧾 Dataset Information
 
-- **Classes (Individuals):**
+- **Total Individuals (Classes):**
   1. Chakri  
   2. Sai Priya  
   3. Uday  
@@ -21,15 +21,15 @@ The goal is to identify a person from a face image, even if the image has been a
   6. Gowthami  
   7. Kumar
 
-- **Number of Images:**
-  - 4000 images per class (after augmentation)
-  - **Total Images:** 31,976
-  - **Split Ratio:** 80% Training | 10% Validation | 10% Testing
+- **Total Images:** 31,976  
+- **Images per Class (after augmentation):** ~4000  
+- **Train/Val/Test Split:** 80% / 10% / 10%
 
-- **Augmentations Applied:**
-  - Gaussian Blur
-  - Grayscale Conversion
-  - Horizontal Flipping
+### 📈 Augmentations Applied
+
+- Gaussian Blur  
+- Grayscale Conversion  
+- Horizontal Flip  
 
 ---
 
@@ -37,19 +37,18 @@ The goal is to identify a person from a face image, even if the image has been a
 
 | Model        | Description |
 |--------------|-------------|
-| **MobileNetV2** | Lightweight and efficient; ideal for mobile deployment |
-| **VGG16**        | Deep and widely used for image classification tasks |
-| **ResNet50V2**   | Deep residual learning with skip connections |
+| **MobileNetV2** | Lightweight, mobile-friendly CNN |
+| **VGG16**        | Classic deep CNN for image classification |
+| **ResNet50V2**   | Residual network with skip connections |
 
 ---
 
 ## ⚙️ Training Configuration
 
 - **Batch Size:** 32  
-- **Epochs:** 10 *(with early stopping)*  
+- **Epochs:** 10 (Early Stopping enabled)  
 - **Optimizer:** Adam  
 - **Loss Function:** Categorical Crossentropy  
-- **Early Stopping:** Enabled, with best model checkpointing
 
 ### 📉 Best Epochs & Validation Loss
 
@@ -61,9 +60,9 @@ The goal is to identify a person from a face image, even if the image has been a
 
 ---
 
-## 🚀 Speed Comparison
+## 🚀 Inference Speed Comparison
 
-### 🔧 Keras (.h5 models)
+### 🔧 Keras (.h5 format)
 
 | Model        | Size    | 10 Images | 50 Images | 100 Images |
 |--------------|---------|-----------|-----------|------------|
@@ -71,7 +70,7 @@ The goal is to identify a person from a face image, even if the image has been a
 | VGG16        | 216 MB  | 5.11 s    | 19.62 s   | 39.62 s    |
 | ResNet50V2   | 282 MB  | 11.01 s   | 12.85 s   | 25.78 s    |
 
-### 🪄 ONNX (.onnx models)
+### 🪄 ONNX (.onnx format)
 
 | Model        | Size     | 10 Images | 50 Images | 100 Images |
 |--------------|----------|-----------|-----------|------------|
@@ -83,7 +82,7 @@ The goal is to identify a person from a face image, even if the image has been a
 
 ## 🧪 Sample Predictions
 
-### ✅ MobileNetV2 Predictions (Examples)
+### ✅ MobileNetV2
 
 | Predicted Class | Actual Class |
 |------------------|---------------|
@@ -92,7 +91,7 @@ The goal is to identify a person from a face image, even if the image has been a
 | Gowthami         | Gowthami      |
 | Uday             | Kavya         |
 
-### ✅ VGG16 Predictions (Examples)
+### ✅ VGG16
 
 | Predicted Class | Actual Class |
 |------------------|---------------|
@@ -100,7 +99,7 @@ The goal is to identify a person from a face image, even if the image has been a
 | Gowthami         | Gowthami      |
 | Kavya            | Kavya         |
 
-### ✅ ResNet50V2 Predictions (Examples)
+### ✅ ResNet50V2
 
 | Predicted Class | Actual Class |
 |------------------|---------------|
@@ -110,3 +109,20 @@ The goal is to identify a person from a face image, even if the image has been a
 
 ---
 
+## ✅ Summary
+
+- **Best Overall Accuracy:** ResNet50V2  
+- **Fastest Inference (ONNX):** MobileNetV2  
+- **Best for Mobile Deployment:** MobileNetV2  
+- **Most Accurate:** ResNet50V2 (low validation loss)
+
+This project demonstrates how model choice, deployment format, and preprocessing affect performance in face re-identification tasks.
+
+---
+
+## 📦 Requirements
+
+Install dependencies using:
+
+```bash
+pip install numpy pandas opencv-python tensorflow keras scikit-learn matplotlib onnx onnxruntime
